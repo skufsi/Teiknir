@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>Teiknir</title>
+	<meta charset="utf-8" />
+</head>
+
+<body style="margin: 0 auto; width: 960px;">
+	<canvas width="900" height="700" style="border: 1px solid black;" id="myCanvas"></canvas><br>
+	<button id="circle">Circle</button>
+	<button id="line">Line</button>
+	<script type="text/javascript">
+		var c = document.getElementById('myCanvas');
+		var ctx = c.getContext('2d');
+
+		var shape = "square"; // Breyta sem segir okkur hverskonar form á að teikna
+		var start_x; // Upphafshnit
+		var start_y; // Upphafshnit
+		var width; // Vídd ferhyrnings
+		var height; // Hæð ferhyrnings
+
+
+		c.addEventListener('mousedown', start); // forritið hlustar eftir atburðinum mousedown (þ.e.a.s. að músatakka sé haldið niðri) og bregst við honum með svarfallinu start
+		c.addEventListener('mouseup', addShape); // sama og að ofan nema fyrir mouseup sem er þegar músatakka er sleppt og svarfallið er addShape
+
+		function start(event) // Fall sem finnur byrjunarhnitið
+		{
+
+			start_x = event.offsetX;
+			start_y = event.offsetY;
+		}
+
+		function addShape(event) // Fall sem bætir við formum(ferhyrningum)
+		{
+			switch (shape) {
+				case "square":
+					width = event.offsetX - start_x; // event.offsetX er staðsetning músarbendilsins á x-ás þegar atburðurinn sem kom fallinu af stað varð
+					height = event.offsetY - start_y; // event.offsetY er staðsetning músarbendilsins á y-ás þegar atburðurinn sem kom fallinu af stað varð
+					ctx.beginPath();
+					ctx.rect(start_x, start_y, width, height);
+					ctx.stroke();
+					ctx.closePath();
+					break;
+				case "Circle":
+					// einhver kóði sem teiknar hring
+					break;
+				case "Line":
+					// einhver kóði sem teiknar línu
+					break;
+			}
+		}
+
+
+	</script>
+</body>
+
+</html>
