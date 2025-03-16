@@ -1,58 +1,39 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<title>Teiknir</title>
-	<meta charset="utf-8" />
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Teikniforrit</title>
+	<link rel="stylesheet" href="css/styles.css">
 </head>
 
-<body style="margin: 0 auto; width: 960px;">
-	<canvas width="900" height="700" style="border: 1px solid black;" id="myCanvas"></canvas><br>
-	<button id="circle">Circle</button>
-	<button id="line">Line</button>
-	<script type="text/javascript">
-		var c = document.getElementById('myCanvas');
-		var ctx = c.getContext('2d');
-
-		var shape = "square"; // Breyta sem segir okkur hverskonar form á að teikna
-		var start_x; // Upphafshnit
-		var start_y; // Upphafshnit
-		var width; // Vídd ferhyrnings
-		var height; // Hæð ferhyrnings
-
-
-		c.addEventListener('mousedown', start); // forritið hlustar eftir atburðinum mousedown (þ.e.a.s. að músatakka sé haldið niðri) og bregst við honum með svarfallinu start
-		c.addEventListener('mouseup', addShape); // sama og að ofan nema fyrir mouseup sem er þegar músatakka er sleppt og svarfallið er addShape
-
-		function start(event) // Fall sem finnur byrjunarhnitið
-		{
-
-			start_x = event.offsetX;
-			start_y = event.offsetY;
-		}
-
-		function addShape(event) // Fall sem bætir við formum(ferhyrningum)
-		{
-			switch (shape) {
-				case "square":
-					width = event.offsetX - start_x; // event.offsetX er staðsetning músarbendilsins á x-ás þegar atburðurinn sem kom fallinu af stað varð
-					height = event.offsetY - start_y; // event.offsetY er staðsetning músarbendilsins á y-ás þegar atburðurinn sem kom fallinu af stað varð
-					ctx.beginPath();
-					ctx.rect(start_x, start_y, width, height);
-					ctx.stroke();
-					ctx.closePath();
-					break;
-				case "Circle":
-					// einhver kóði sem teiknar hring
-					break;
-				case "Line":
-					// einhver kóði sem teiknar línu
-					break;
-			}
-		}
-
-
-	</script>
+<body>
+	<h1>Teiknir</h1>
+	<table>
+		<td id="toolTop">
+			<input id="color" type="color" value="#000000">
+		</td>
+		<td id="toolTop">
+			<select id="lineSize">
+				<option value="1">1px</option>
+				<option value="3">3px</option>
+				<option value="6">6px</option>
+			</select>
+		</td>
+		<td id="toolTop">
+			<label><b>Fill</b></label>
+			<input type="checkbox" id="fillOption">
+		</td>
+	</table>
+	<canvas id="drawingBoard"></canvas><br>
+	<div id="toolBot">
+		<button id="box">Kassi</button>
+		<button id="circle">Hringur</button>
+		<button id="line">Lína</button>
+		<button id="clear">Hreinsa</button>
+	</div>
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

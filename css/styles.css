@@ -1,0 +1,114 @@
+body {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+}
+
+@keyframes gradient {
+
+    /* gradient bakgrunnur */
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+h1 {
+    text-align: center;
+    color: white;
+
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td {
+    float: left;
+}
+
+
+
+#drawingBoard {
+    /* teikniborð */
+    background-color: white;
+    border: 1px solid black;
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border-radius: 30px;
+
+}
+
+#toolBot {
+    /* toolbar bakgrunnur fyrir takka */
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
+    padding: 12px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+#toolTop {
+    /* toolbar bakgrunnur fyrir takka */
+    background-color: #ffffff74;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: fit-content;
+    padding: 12px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    text-shadow: rgb(66, 66, 66)1px 0 6px;
+
+}
+
+button {
+    /* takkar */
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #ffffff74;
+    border: none;
+    border-radius: 15px;
+
+}
+
+#toolTop:hover {
+    /* hover effect takkar uppi */
+    background-color: #ff9dd3;
+}
+
+button:hover {
+    /* hover effect takkar niðri */
+    background-color: #ff9dd3;
+}
+
+button:active {
+    /* hreyfing á tökkum þegar ýtt er á þá */
+    background-color: #e4e3e374;
+    transform: translateY(3px);
+}
